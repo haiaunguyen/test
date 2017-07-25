@@ -24,10 +24,8 @@
 
                 <div class="col-xs-12">
 
-                    <a href="<?php echo site_url() ?>" >
-                        <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" /> 
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid">
+                    <nav class="navbar navbar-default navbar-fixed-top">
+                        <div class="container">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -36,7 +34,9 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="<?php echo site_url() ?>"><?php echo esc_html(get_the_title( '645' )); ?></a>
+                            <a class="navbar-brand" href="<?php echo site_url() ?>">
+                                <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" /> 
+                            </a>
                             </div>
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,7 +45,8 @@
                                     wp_nav_menu(array(
                                         'theme_location'=>'primary',
                                         'container'=>false,
-                                        'menu_class'=>'nav navbar-nav',
+                                        'menu_class'=>'nav navbar-nav navbar-right',
+									    'walker' => new Walker_Nav_Primary()
                                         )
                                     ); 
                                 ?>
@@ -55,8 +56,13 @@
 
                 </div>
             
-                <div class="search-form-container">
-                    <?php get_search_form(  ); ?>
+
+                <div class="col-xs-12">
+                    <div class="search-form-container">
+                        <div class="container">
+                            <?php get_search_form(  ); ?>
+                        </div>
+                    </div>
                 </div>
 
             </div>     
