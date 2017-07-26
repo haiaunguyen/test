@@ -4,10 +4,10 @@
 
     <div class="col-xs-12 col-sm-8">
 
-        <div class="row text-center">
+        <div class="row text-center no-margin">
 
         <?php
-
+        
         if( have_posts() ): $i = 0;
 
             while( have_posts() ): the_post(); ?>
@@ -18,7 +18,7 @@
                     elseif($i > 2): $column = 4; $class = ' third-row-padding ';
                     endif;
                 ?>
-                    <div class="col-xs-<?php echo $column; echo $class; ?>">
+                    <div class="col-xs-<?php echo $column; echo $class; ?> news-item">
                         <?php if( has_post_thumbnail() ):
 							$urlImg = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
 						endif; ?>
