@@ -39,7 +39,13 @@
                     while( $lastPost->have_posts() ): $lastPost->the_post(); ?>
 
                         <div class="item <?php if($count == 0): echo 'active'; endif; ?>">
-                            <?php the_post_thumbnail( 'medium' ); ?>
+                        <?php if( has_post_thumbnail() ): ?>    
+                            <?php the_post_thumbnail( 'full' ); ?>
+                        <?php else: ?>
+                            <?php
+                                echo '<img src="http://localhost/wordPress/wp-content/uploads/2013/05/ktc_logo_slogan1.jpg" width="600px" height="200px" />' ;
+                            endif; 
+                            ?>
                             <div class="carousel-caption">
                                 <?php the_title( sprintf('<h3 class="entry-title"><a href="%s">', esc_url(get_permalink() ) ),'</a></h3>' ); ?>
 <!--                                <small><?php the_category(' '); ?></small>-->
