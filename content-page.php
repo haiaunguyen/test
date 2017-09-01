@@ -1,6 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-    <header class="entry-header">
+    <header class="entry-header text-center">
         <a href="<?php echo esc_url(get_permalink() ) ?>" class="btn btn-info btn-lg" style="position: fixed; bottom: 100px; right: 0; z-index: 1">
             <span class="glyphicon glyphicon-home"></span>
         </a>
@@ -8,9 +8,8 @@
 <!--        <small>Posted on: <?php the_time('F j, Y'); ?> at <?php the_time('g:i a'); ?> <?php the_category(); ?></small>-->
     </header>
 
-    <div class="row col-xs-12 col-sm-8">
+    <div class="row">
 
-<!--
         <?php if( has_post_thumbnail() ): ?>
 
             <div class="col-xs-12 col-sm-4">
@@ -27,28 +26,6 @@
             </div>
 
         <?php endif; ?>
--->
-        <?php    
-            $args = array(
-            'type' => 'post',
-            'posts_per_page' => 6,
-            'offset' => 1,
-        );
-
-        $lastPost = new WP_Query( $args );
-
-        if( $lastPost->have_posts() ):
-
-        while( $lastPost->have_posts() ): $lastPost->the_post(); ?>
-
-<!--            <?php get_template_part('content',get_post_format()); ?>          -->
-<?php the_title( sprintf('<h5 class="entry-title"><a href="%s">', esc_url(get_permalink() ) ),'</a></h5>' ); ?>         <?php endwhile;
-    
-        endif;
-
-        wp_reset_postdata();
-
-        ?> 
     </div>
 
 </article>

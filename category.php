@@ -4,7 +4,7 @@
 
     <div class="col-xs-12 col-sm-8">
 
-        <div class="row text-left no-margin">
+        <div class="row text-justify no-margin">
             <?php
             foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; }
 
@@ -12,14 +12,6 @@
 
                 while( have_posts() ): the_post(); ?>
 
-    <!--
-                    <?php 
-                        if($i==0): $column = 12;
-                        elseif($i > 0 && $i <= 2): $column = 6; $class = ' second-row-padding ';
-                        elseif($i > 2): $column = 4; $class = ' third-row-padding ';
-                        endif;
-                    ?>
-    -->
                         <div class="col-xs-12 news-item">
                            <?php get_template_part('content',get_post_format()); ?>    
                         </div>

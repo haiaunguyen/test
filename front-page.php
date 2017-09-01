@@ -2,7 +2,7 @@
 
 <div class="row">
 
-    <div class="col-xs-12">
+    <div class="col-xs-12" style="margin-left: -15px">
         <div class="col-xs-4">
             <br>Giới thiệu:<br>
             Tên gọi: Câu lạc bộ Khuyến Tài (Khuyen Tai Club)<br>
@@ -17,26 +17,24 @@
         <div class="carousel-inner" role="listbox">
 
         <?php
-
+            
             $args_cat = array(
-                'include' => '11,13'
+                'include' => '17'
             );
-
             $categories = get_categories( $args_cat );
             $count = 0;
             $bullets = '';
-            foreach($categories as $category):
-
-                $args = array(
-                    'type' => 'post',
-                    'posts_per_page' => 1,
-                    'category__in' => $category->term_id,
-                    //'category__not_in' => array(),
-                );
+            for(;$count<3;):               
+                    $args = array(
+                        'type' => 'post',
+                        'posts_per_page' => 1,
+                        'offset' => $count,
+                        'category__in' => $category->term_id,
+                        //'category__not_in' => array(),
+                    );              
+            $lastPost = new WP_Query( $args );
                 
-                $lastPost = new WP_Query( $args );
-
-                if( $lastPost->have_posts() ):
+            if( $lastPost->have_posts() ):
 
                     while( $lastPost->have_posts() ): $lastPost->the_post(); ?>
 
@@ -55,16 +53,15 @@
                         <?php $bullets .= '"></li>'; ?>
 
                         
-                    <?php endwhile;
+                    <?php  endwhile;
             
                 endif;
 
                 wp_reset_postdata();
 
             $count++;
-            
-            endforeach;          
-
+                    
+            endfor;
         ?>       
 
             <!-- Indicators  -->
@@ -91,19 +88,23 @@
 
 <div class="row">
 
-    <div class="col-xs-12 col-sm-8">
-
+    <div class="col-xs-12 col-sm-8 text-justify">
+        <?php
+            foreach((get_the_category()) as $category) 
+            {
+                echo $category->cat_name;
+            }
+        ?>
          <?php
 
         if( have_posts() ):
 
             while( have_posts() ): the_post(); ?>
 
-                <?php get_template_part('content','frontpage'); ?>          
-
-            <?php endwhile;
+                <?php get_template_part('content','frontpage'); ?>         
+            <?php endwhile; 
         
-        endif;
+        endif; 
 
         //PRINT OTHER 2 POST NOT THE FIRST ONE
 
@@ -120,8 +121,7 @@
         while( $lastPost->have_posts() ): $lastPost->the_post(); ?>
 
             <?php get_template_part('content',get_post_format()); ?>          
-
-        <?php endwhile;
+<?php the_title( sprintf('<h5 class="entry-title"><a href="%s">', esc_url(get_permalink() ) ),'</a></h5>' ); ?>         <?php endwhile;
     
         endif;
 
@@ -131,6 +131,7 @@
 
         <!-- <hr> -->
 
+<!--
         <?php
         
         //PRINT ONLY ONE CATEGORY
@@ -150,6 +151,7 @@
         wp_reset_postdata();
 
         ?>
+-->
     
     </div>
 

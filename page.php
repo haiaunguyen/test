@@ -2,7 +2,7 @@
 
 <div class="row">
 
-    <div class="col-xs-12 col-sm-8">
+    <div class="col-xs-12 col-sm-8 text-justify">
 
          <?php
 
@@ -10,7 +10,7 @@
 
             while( have_posts() ): the_post(); ?>
 
-                <?php get_template_part('content','frontpage'); ?>          
+                <?php get_template_part('content','page'); ?>          
 
             <?php endwhile;
         
