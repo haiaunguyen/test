@@ -10,14 +10,14 @@
 
             while( have_posts() ): the_post(); ?>
 
-                <?php get_template_part('content',get_post_format()); ?>          
+                <?php get_template_part('content','frontpage'); ?>          
 
             <?php endwhile;
         
         endif;
         ?>
     </div>
-
+    
     <div class="col-xs-12 col-sm-4">
         <?php get_sidebar(); ?>
     </div>

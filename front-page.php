@@ -2,9 +2,16 @@
 
 <div class="row">
 
-    <div class="col-sx-12">
-
-    <div id="test-carousel" class="carousel slide" data-ride="carousel">
+    <div class="col-xs-12">
+        <div class="col-xs-4">
+            <br>Giới thiệu:<br>
+            Tên gọi: Câu lạc bộ Khuyến Tài (Khuyen Tai Club)<br>
+            Slogan: Sống Khát Khao, Sống Vươn Cao<br>
+            Trụ sở chính: 66-68 Lê Thánh Tôn, phường Bến Nghé, quận 1, TP.Hồ Chí Minh<br>
+            Đơn vị bảo trợ: Hội Khuyến Học TP.Hồ Chí Minh<br>
+            Văn phòng hoạt động: Hội Cựu Giáo Chức TP.Hồ Chí Minh số 300 Điện Biên Phủ,phường 7, quận 3
+        </div>
+    <div id="test-carousel" class="carousel slide col-xs-6 col-sm-3" data-ride="carousel" style="width: 600px">
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
@@ -12,7 +19,7 @@
         <?php
 
             $args_cat = array(
-                'include' => '12, 13, 1'
+                'include' => '11,13'
             );
 
             $categories = get_categories( $args_cat );
@@ -36,8 +43,8 @@
                         <div class="item <?php if($count == 0): echo 'active'; endif; ?>">
                             <?php the_post_thumbnail( 'medium' ); ?>
                             <div class="carousel-caption">
-                                <?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url(get_permalink() ) ),'</a></h1>' ); ?>
-                                <small><?php the_category(' '); ?></small>
+                                <?php the_title( sprintf('<h3 class="entry-title"><a href="%s">', esc_url(get_permalink() ) ),'</a></h3>' ); ?>
+<!--                                <small><?php the_category(' '); ?></small>-->
                             </div>
                         </div>
 
@@ -92,14 +99,14 @@
 
             while( have_posts() ): the_post(); ?>
 
-                <?php get_template_part('content',get_post_format()); ?>          
+                <?php get_template_part('content','frontpage'); ?>          
 
             <?php endwhile;
         
         endif;
 
         //PRINT OTHER 2 POST NOT THE FIRST ONE
-/*
+
         $args = array(
             'type' => 'post',
             'posts_per_page' => 2,
@@ -119,7 +126,7 @@
         endif;
 
         wp_reset_postdata();
-*/
+
         ?> 
 
         <!-- <hr> -->
@@ -127,7 +134,7 @@
         <?php
         
         //PRINT ONLY ONE CATEGORY
-/*
+
         $lastPost = new WP_Query( 'type=post&posts_per_page=-1&category_name=hoc-bong' );
 
         if( $lastPost->have_posts() ):
@@ -141,7 +148,7 @@
         endif;
 
         wp_reset_postdata();
-*/
+
         ?>
     
     </div>

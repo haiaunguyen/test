@@ -26,7 +26,7 @@
                 <div class="col-xs-12">
 
                     <nav class="navbar navbar-default navbar-fixed-top">
-                        <div class="container" style="height: 100px ">
+                        <div class="container" style="height: 80px">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">                          
@@ -35,13 +35,13 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="<?php echo site_url() ?>">
-                                <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" /> 
+                            <a class="navbar-brand" href="<?php echo site_url() ?>" >
+                                <img src="<?php header_image(); ?>" height="57,85px" width="275px" alt="logo" style="margin-top: -5px" /> 
                             </a>
                             </div>
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top: 10px; font-size: 16px">
                                 <?php
                                     wp_nav_menu(array(
                                         'theme_location'=>'primary',

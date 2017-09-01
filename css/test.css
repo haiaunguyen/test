@@ -32,7 +32,7 @@ body { margin-top: 100px; }
 .news-item { padding: 0; }
 
 /* header search form */
-.search-form-container { display: none; position: fixed; top: 100px; left: 0; right: 0; background-color: rgba(0, 0, 0, .35); padding: 20px; z-index: 2; }
+.search-form-container { display: none; position: fixed; top: 80px; left: 0; right: 0; background-color: rgba(0, 0, 0, .35); padding: 20px; z-index: 2; }
 .open-search a { font-size: 0; width: 30px; position: relative; }
 .open-search a:after { 
 display: block;
